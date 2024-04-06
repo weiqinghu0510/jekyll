@@ -22,17 +22,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Vega Lite Example Project">
-  <meta property="og:description" content="This is a "showcase" project that uses vega-lite for interactive viz!">
-  <meta property="og:image" content="assets/pngs/cars.png">
+  <meta property="og:title" content="Homework8">
+  <meta property="og:description" content="This is my homewhork8">
+  <meta property="og:image" content="assets/pngs/cover.png">
 
-  <title>Vega Lite Example Project</title>
-  <meta name="description" content="This is a "showcase" project that uses vega-lite for interactive viz!">
+  <title>Homework8</title>
+  <meta name="description" content="This is my homewhork8">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/jekyll/assets/favicon.ico">
 
   <!-- Theme style -->
-  <script src="/assets/js/theme.js"></script>
+  <script src="/jekyll/assets/js/theme.js"></script>
 
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/jekyll/assets/css/style.css">
 
 </head>
 
@@ -53,18 +53,18 @@
   <main class="flex-shrink-0 container mt-5">
     <nav class="navbar navbar-expand-lg navbar-themed">
 
-  <a class="navbar-brand" href="/"><h5><b>IS445 Jekyll Template</b></h5></a>
+  <a class="navbar-brand" href="/jekyll/"><h5><b>IS445 Jekyll Template</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-1x fa-bars text-themed"></i>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/jekyll/projects/">Projects</a>
 
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
+      <a class="nav-item nav-link " href="/jekyll/blog/">Blog</a>
 
-      <a class="nav-item nav-link " href="/about/">About</a>
+      <a class="nav-item nav-link " href="/jekyll/about/">About</a>
 
       
 
@@ -74,46 +74,67 @@
 
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
-  <h1 id="example-including-vega-lite">Example including vega-lite</h1>
+  <h1 id="homehwork8-charts-of-university-agency-owned-buildings">Homehwork8： Charts of University Agency Owned Buildings</h1>
 
-<p>Example comes from this <a href="https://blog.4dcu.be/programming/2021/05/03/Interactive-Visualizations.html">great blog post right here</a> that was also used in <a href="https://github.com/UIUC-iSchool-DataViz/is445_bcubcg_fall2022/blob/main/week01/test_imports_week01.ipynb">our test import script</a>.</p>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
 
-<p>We can use a vegachart HTML tag like so:</p>
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"data": {"name": "data-03c30defc8acb3bd5d87d31347215515"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Usage Description", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Usage Description", "sort": "-y", "title": "Usage Description", "type": "nominal"}, "y": {"field": "Count", "title": "Number of Buildings", "type": "quantitative"}}, "height": 400, "title": "Count of Buildings Categorized by Usage Description", "width": 600}, {"data": {"name": "data-6d124474eec0f06953696256fe12c488"}, "mark": {"type": "bar"}, "encoding": {"color": {"condition": {"param": "param_1", "field": "Agency Name", "legend": null, "type": "nominal"}, "value": "lightgray"}, "tooltip": [{"field": "Agency Name", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Agency Name", "sort": "-y", "title": "Agency Name", "type": "nominal"}, "y": {"field": "Count", "scale": {"type": "log"}, "title": "Number of Buildings", "type": "quantitative"}}, "height": 400, "name": "view_1", "title": "Count of Buildings Categorized by Agency (Logarithmic Scale)", "width": 800}], "params": [{"name": "param_1", "select": {"type": "point", "fields": ["Agency Name"]}, "bind": "legend", "views": ["view_1"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-03c30defc8acb3bd5d87d31347215515": [{"Usage Description": "Storage", "Count": 2231}, {"Usage Description": "Unusual", "Count": 1684}, {"Usage Description": "Industrial", "Count": 1174}, {"Usage Description": "Assembly", "Count": 948}, {"Usage Description": "Detention & Correc", "Count": 731}, {"Usage Description": "Business", "Count": 715}, {"Usage Description": "Residential", "Count": 636}, {"Usage Description": "Health Care", "Count": 382}, {"Usage Description": "Education", "Count": 258}, {"Usage Description": "Mercantile", "Count": 77}, {"Usage Description": "Utiility & Miscellan", "Count": 21}, {"Usage Description": "Not provided", "Count": 4}, {"Usage Description": "Public", "Count": 1}], "data-6d124474eec0f06953696256fe12c488": [{"Agency Name": "Department of Natural Resources", "Count": 3223}, {"Agency Name": "Department of Corrections", "Count": 1428}, {"Agency Name": "Department of Transportation", "Count": 1137}, {"Agency Name": "Department of Human Services", "Count": 617}, {"Agency Name": "University of Illinois", "Count": 525}, {"Agency Name": "Southern Illinois University", "Count": 420}, {"Agency Name": "Historic Preservation Agency", "Count": 284}, {"Agency Name": "Department of Military Affairs", "Count": 231}, {"Agency Name": "Department of Agriculture", "Count": 228}, {"Agency Name": "Department of Juvenile Justice", "Count": 120}, {"Agency Name": "Department of State Police", "Count": 109}, {"Agency Name": "Illinois State University", "Count": 102}, {"Agency Name": "Department of Veterans' Affairs", "Count": 94}, {"Agency Name": "Northern Illinois University", "Count": 79}, {"Agency Name": "Department of Central Management Services", "Count": 60}, {"Agency Name": "Western Illinois University", "Count": 42}, {"Agency Name": "Office of the Secretary of State", "Count": 41}, {"Agency Name": "Eastern Illinois University", "Count": 35}, {"Agency Name": "Northeastern Illinois University", "Count": 18}, {"Agency Name": "Chicago State University", "Count": 16}, {"Agency Name": "Illinois Community College Board", "Count": 15}, {"Agency Name": "Governors State University", "Count": 11}, {"Agency Name": "Illinois Board of Higher Education", "Count": 10}, {"Agency Name": "Illinois Medical District Commission", "Count": 3}, {"Agency Name": "Appellate Court / Third District", "Count": 2}, {"Agency Name": "Department of Public Health", "Count": 2}, {"Agency Name": "Illinois Emergency Management Agency", "Count": 2}, {"Agency Name": "Appellate Court / Second District", "Count": 1}, {"Agency Name": "Illinois Courts", "Count": 1}, {"Agency Name": "Appellate Court / Fourth District", "Count": 1}, {"Agency Name": "Appellate Court / Fifth District", "Count": 1}, {"Agency Name": "IL State Board of Education", "Count": 1}, {"Agency Name": "Department of Revenue", "Count": 1}, {"Agency Name": "Office of the Attorney General", "Count": 1}, {"Agency Name": "Governor's Office", "Count": 1}]}};
+      var embedOpt = {"mode": "vega-lite"};
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;vegachart schema-url="/assets/json/cars.json" style="width: 100%"&gt;&lt;/vegachart&gt;
-</code></pre></div></div>
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
 
-<vegachart schema-url="/assets/json/cars.json" style="width: 100%"></vegachart>
+  </script>
+</body>
+</html>
 
-<p>In theory, you can also use <a href="https://jekyllrb.com/docs/plugins/hooks/">Jekyll hooks</a> to do it, but I haven’t figured out a way that looks nice yet.</p>
+<p>The upper visualization is a bar chart that illustrates the count of buildings categorized by their usage description, when the cursor hover over on a bar, it will show each cartgory’s value.This chart is able to show the usage types among university buildings and let users identify which usage types are most common.</p>
 
-<h2 id="search-the-data--methods">Search The Data &amp; Methods</h2>
+<p>I used bars as the mark of the chart, which is effective for showing the quantity and for comparison. The x-axis is nominal, representing agency names, and the y-axis is quantitative, representing the count of buildings. I also tilted the x-axis to a 90-degree angle to ensure they were not overlapping. I just leave the chart as the default color. There is no need to use multiple colors since they are the same quantity.</p>
 
-<p>Below is where we can put some links to both the data and the analysis code as buttons:</p>
+<p>The lower visualization is a bar chart that illustrates the count of buildings categorized by their University Agency. When the cursor hover over on a bar, it will show each cartgory’s value.This chart is able to show the usage types among university buildings, and let users This visualization presents a bar chart demonstrating the number of buildings each university agency owns. It allows users to quickly identify which agencies have the largest and smallest numbers of buildings.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="left"&gt;
-&lt;a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/vega/vega/blob/main/docs/data/cars.json"&gt;
-  The Data
-&lt;/a&gt;
-&lt;/div&gt;
-
-&lt;div class="right"&gt;
-&lt;a class="m-1 btn btn-outline-primary btn-2 " href="https://blog.4dcu.be/programming/2021/05/03/Interactive-Visualizations.html"&gt;
-  The Analysis
-&lt;/a&gt;
-&lt;/div&gt;
-</code></pre></div></div>
+<p>I used bars as the mark of the chart, which is effective for showing the quantity and for comparison. The x-axis is nominal, representing agency names, and the y-axis is quantitative, representing the count of buildings. Because there are significant numerical differences in the number of buildings for different agencies, I have set the scale of the y-axis to exponential.I also tilted the x-axis to a 90-degree angle to ensure they were not overlapping. I set different agency to different color, make them easier to differentiate.</p>
 
 <!-- these are written in a combo of html and liquid -->
 
 <div class="left">
-<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/vega/vega/blob/main/docs/data/cars.json">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv">
   The Data
 </a>
 </div>
 
 <div class="right">
-<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/jnaiman/online_cv_public/blob/main/python_notebooks/test_generate_plots.ipynb">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/weiqinghu0510/jekyll/blob/main/Workbook.ipynb">
   The Analysis
 </a>
 </div>
@@ -165,13 +186,13 @@
 
 <!-- Custom page specific js files -->
   
-    <script src='/assets/js/vega.min.js' type="text/javascript"></script>
+    <script src='/jekyll/assets/js/vega.min.js' type="text/javascript"></script>
   
-    <script src='/assets/js/vega-lite.min.js' type="text/javascript"></script>
+    <script src='/jekyll/assets/js/vega-lite.min.js' type="text/javascript"></script>
   
-    <script src='/assets/js/vega-embed.min.js' type="text/javascript"></script>
+    <script src='/jekyll/assets/js/vega-embed.min.js' type="text/javascript"></script>
   
-    <script src='/assets/js/justcharts.js' type="text/javascript"></script>
+    <script src='/jekyll/assets/js/justcharts.js' type="text/javascript"></script>
   
 
 

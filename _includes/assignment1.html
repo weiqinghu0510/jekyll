@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-03c30defc8acb3bd5d87d31347215515"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Usage Description", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Usage Description", "sort": "-y", "title": "Usage Description", "type": "nominal"}, "y": {"field": "Count", "title": "Number of Buildings", "type": "quantitative"}}, "height": 400, "title": "Count of Buildings Categorized by Usage Description", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-03c30defc8acb3bd5d87d31347215515": [{"Usage Description": "Storage", "Count": 2231}, {"Usage Description": "Unusual", "Count": 1684}, {"Usage Description": "Industrial", "Count": 1174}, {"Usage Description": "Assembly", "Count": 948}, {"Usage Description": "Detention & Correc", "Count": 731}, {"Usage Description": "Business", "Count": 715}, {"Usage Description": "Residential", "Count": 636}, {"Usage Description": "Health Care", "Count": 382}, {"Usage Description": "Education", "Count": 258}, {"Usage Description": "Mercantile", "Count": 77}, {"Usage Description": "Utiility & Miscellan", "Count": 21}, {"Usage Description": "Not provided", "Count": 4}, {"Usage Description": "Public", "Count": 1}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
